@@ -56,6 +56,10 @@ std::string bag::Converter::str(size_t spaces) const
 
 bool bag::Converter::_read_from_gdal()
 {
+	std::cout << "Reading with GDAL library: " << GDALVersionInfo(nullptr) << std::endl;
+
+	// Open the elevation input
+
 	GDALAllRegister();
 	auto poDataset = static_cast<GDALDataset *>(GDALOpen(_elev_input.c_str(), GA_ReadOnly));
 	if(poDataset == nullptr)
@@ -63,11 +67,14 @@ bool bag::Converter::_read_from_gdal()
 		std::cerr << "unable to open input file: " << _elev_input;
 		return false;
 	}
-	std::cout << "reading using GDAL driver: " << poDataset->GetDriver()->GetDescription() << std::endl;
+	std::cout << " * Driver: " << poDataset->GetDriver()->GetDescription() << std::endl;
+
+
+	// Retrieve info and metadata
 
 	_rows = poDataset->GetRasterYSize();
 	_cols = poDataset->GetRasterXSize();
-	std::cout << "input size: " << _rows << "x" << _cols << std::endl;
+	std::cout << " * Size: " << _rows << "x" << _cols << std::endl;
 
 	poDataset->GetGeoTransform( _transform.data() );
 	_res_x = abs( _transform[1] );
@@ -80,6 +87,9 @@ bool bag::Converter::_read_from_gdal()
 	_hrs = poDataset->GetProjectionRef();
 	// std::cout << "hrs: " << _hrs << std::endl;
 	_vrs = R"(VERT_CS["//", VERT_DATUM["//", 2000]])";
+
+
+	// calculate the geographic bounding box
 
 	OGRSpatialReference oSourceSRS, oTargetSRS;
 	auto pszWkt = const_cast<char*>(poDataset->GetProjectionRef());
@@ -100,10 +110,13 @@ bool bag::Converter::_read_from_gdal()
 	_geo_e = x;
 	_geo_n = y;
 
+
+	// Read all the data at once and replace 'nodata' values
+
 	float out_nodata = 1000000.0f;
 	GDALRasterBand *poBand = poDataset->GetRasterBand( 1 );
 	double in_nodata = poBand->GetNoDataValue( nullptr );
-	std::cout << "input no-data: " << std::fixed << in_nodata << std::endl;
+	std::cout << " * No-data value: " << std::fixed << in_nodata << std::endl;
 	_elevation.resize( _rows*_cols );
 	CPLErr ret = poBand->RasterIO( GF_Read, 0, 0, int( _cols ), int( _rows ), static_cast<void*>(_elevation.data()),
 		int( _cols ), int( _rows ), GDT_Float32, 0, 0 );
@@ -120,6 +133,9 @@ bool bag::Converter::_read_from_gdal()
 	}
 	std::replace( _elevation.begin(), _elevation.end(), float( in_nodata ), out_nodata );
 
+
+	// Retrieve min/max elevation
+
 	double adfMinMax[2];
 	GDALComputeRasterMinMax( GDALRasterBandH(poBand), TRUE, adfMinMax );
 	_min_depth = float( adfMinMax[0] );
@@ -132,13 +148,18 @@ bool bag::Converter::_read_from_gdal()
 
 bool bag::Converter::_write_to_bag()
 {
-	// finally write
+	// Check if the output already exist
+
 	if(path_exists( _bag_output ))
 	{
 		remove_path( _bag_output );
 	}
 
-	// configdata path
+	std::cout << "Writing with BAG library: " << BAG_VERSION << std::endl;
+
+
+	// Manage the 'configdata' folder
+
 	if(_configdata_folder.empty())
 	{
 		// C-string since a null pointer is underfined behavior for string
@@ -163,15 +184,20 @@ bool bag::Converter::_write_to_bag()
 		std::cerr << "issue with setenv: " << ret_value << " using " << _configdata_folder << std::endl;
 		return false;
 	}
-	std::cout << "using BAG_HOME: " << getenv( "BAG_HOME" ) << std::endl;
+	std::cout << " * BAG_HOME: " << getenv( "BAG_HOME" ) << std::endl;
 
-	// template path
+
+	// Read the metadata template
+
 	_metadata_template_file = join_path( _metadata_folder, "metadata_template.xml" );
 	if(!path_exists( _metadata_template_file ))
 	{
 		std::cerr << "issue in locating the template path: " << _metadata_template_file << std::endl;
 		return false;
 	}
+
+
+	// Populate the metadata
 
 	_metadata_temp_file = replace_str( _bag_output, ".bag", ".xml" );
 	_metadata = ascii_file_content( _metadata_template_file );
@@ -207,6 +233,9 @@ bool bag::Converter::_write_to_bag()
 	_metadata = replace_str( _metadata, "BAGCNV_LINEAGE_DATETIME", cur_iso_timestamp() );
 	_metadata = replace_str( _metadata, "BAGCNV_LINEAGE_RESPONSIBLE_PARTY", "BAG Converter" );
 
+
+	// Write the temporary metadata file
+
 	std::ofstream ofs( _metadata_temp_file );
 	if(!ofs)
 	{
@@ -215,6 +244,9 @@ bool bag::Converter::_write_to_bag()
 	}
 	ofs << _metadata;
 	ofs.close();
+
+
+	// Create the BAG file
 
 	_data = new bagData;
 	std::unique_ptr<bagData> p_data( _data );
@@ -228,7 +260,7 @@ bool bag::Converter::_write_to_bag()
 	}
 	_data->min_elevation = _min_depth;
 	_data->max_elevation = _max_depth;
-	std::cout << std::fixed << "elevation range: " << _data->min_elevation << ", " << _data->max_elevation << std::endl;
+	std::cout << std::fixed << " * Elevation range: " << _data->min_elevation << ", " << _data->max_elevation << std::endl;
 
 	_data->min_uncertainty = BAG_NULL_UNCERTAINTY;
 	_data->max_uncertainty = BAG_NULL_UNCERTAINTY;
@@ -242,15 +274,12 @@ bool bag::Converter::_write_to_bag()
 		return false;
 	}
 
-	// populate layers row-by-row using valid values
+	// Populate layers row-by-row
+
 	std::vector<float> uncertainty( _cols, BAG_NULL_UNCERTAINTY );
 
 	for(int32_t r = 0; r < int32_t( _rows ); r++)
 	{
-		for(int32_t c = 0; c < int32_t( _cols ); c++)
-		{
-
-		}
 		_error = bagWriteRow( _hnd, int32_t( _rows ) - r - 1, 0, int32_t( _cols ) - 1, Elevation,
 			static_cast<void*>( _elevation.data() + r*_cols ) );
 		if(_error != BAG_SUCCESS)
@@ -267,7 +296,10 @@ bool bag::Converter::_write_to_bag()
 		}
 	}
 
+	// Cleaning stuff
+
 	remove_path( _metadata_temp_file );
+	_elevation.clear();
 
 	return true;
 }
