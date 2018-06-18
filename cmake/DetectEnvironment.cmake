@@ -1,0 +1,181 @@
+DEB_START("Environment")
+
+DEB( "host: ${CMAKE_HOST_SYSTEM_NAME} ${CMAKE_HOST_SYSTEM_VERSION} ${CMAKE_HOST_SYSTEM_PROCESSOR}" )
+if( CMAKE_CROSSCOMPILING )
+    DEB( "target: ${CMAKE_SYSTEM_NAME} ${CMAKE_SYSTEM_VERSION} ${CMAKE_SYSTEM_PROCESSOR}" )
+endif()
+
+# Detect Clang compiler
+if( CMAKE_CXX_COMPILER_ID STREQUAL "Clang" )
+    set(CMAKE_COMPILER_IS_GNUCXX 1)
+    set(CMAKE_COMPILER_IS_CLANGCXX 1)
+endif()
+if( CMAKE_C_COMPILER_ID STREQUAL "Clang" )
+    set( CMAKE_COMPILER_IS_GNUCC 1 )
+    set( CMAKE_COMPILER_IS_CLANGCC 1 )
+endif()
+
+if( MSVC )    
+
+    if( CMAKE_CL_64 ) # Detect Microsoft compiler at 64 bits
+        set( MSVC64 1 )
+        set( PROJECT_ARCH x64)
+    else()
+        set( PROJECT_ARCH x86)
+    endif()                               
+
+    # Avoid some MSVC-biased warnings and set the MSW version (e.g. Win7)
+	add_definitions( -D_CRT_SECURE_NO_WARNINGS -DNTDDI_VERSION=NTDDI_WIN7 -D_WIN32_WINNT=0x0601 -wd4996 )
+    
+else()  # Assuming GNU world
+	
+	set(CMAKE_CXX_FLAGS               "-fPIC -Wall -pthread" )    # Initialize CXXFLAGS.
+	#set(CMAKE_CXX_FLAGS             "-fPIC -Wall -pg -pthread") # Uncommnent for profiling
+	
+	# For experimental filesystem support
+	list(APPEND OCB_LIBS "stdc++fs")
+
+	# Compiler-specific C++11 activation.
+	if( "${CMAKE_CXX_COMPILER_ID}" MATCHES "GNU" )
+		execute_process( COMMAND ${CMAKE_CXX_COMPILER} -dumpversion OUTPUT_VARIABLE GCC_VERSION )
+		if ( NOT (GCC_VERSION VERSION_GREATER 4.7 OR GCC_VERSION VERSION_EQUAL 4.7) )
+			message( FATAL_ERROR "${PROJECT_NAME} requires g++ 4.7 or greater" )
+		endif ()
+ 		set(CMAKE_C_FLAGS ${CMAKE_C_FLAGS} "-std=c99") 
+	elseif ( "${CMAKE_CXX_COMPILER_ID}" MATCHES "Clang" )
+		set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++" )
+	else ()
+		message( FATAL_ERROR "Your C++ compiler does not support C++11" )
+	endif()
+	    
+	if(APPLE)
+		 set(CMAKE_XCODE_ATTRIBUTE_CLANG_CXX_LANGUAGE_STANDARD "c++0x")
+		 set(CMAKE_XCODE_ATTRIBUTE_CLANG_CXX_LIBRARY "libc++")
+	endif(APPLE)
+	
+	# Detect 64bit MinGW
+    if(WIN32)
+		execute_process(COMMAND ${CMAKE_CXX_COMPILER} -dumpmachine
+						OUTPUT_VARIABLE CMAKE_UTILS_GCC_TARGET_MACHINE
+						OUTPUT_STRIP_TRAILING_WHITESPACE)
+		if(CMAKE_UTILS_GCC_TARGET_MACHINE MATCHES "amd64|x86_64|AMD64")
+			set(MINGW64 1)
+		endif()
+	endif()
+
+endif()
+
+if( MSVC64 OR MINGW64 )
+    set(                X86_64 1 )
+elseif( MINGW OR (MSVC AND NOT CMAKE_CROSSCOMPILING) )
+    set(                X86 1 )
+elseif( CMAKE_SYSTEM_PROCESSOR MATCHES "amd64.*|x86_64.*|AMD64.*" )
+    set(                X86_64 1 )
+elseif( CMAKE_SYSTEM_PROCESSOR MATCHES "i686.*|i386.*|x86.*|amd64.*|AMD64.*" )
+    set(                X86 1 )
+elseif( CMAKE_SYSTEM_PROCESSOR MATCHES "arm.*|ARM.*" )
+    set(                ARM 1 )
+endif()
+if( MSVC )
+    if( MSVC_VERSION EQUAL 1400 )
+        set(            PROJECT_RUNTIME vc8)
+    elseif( MSVC_VERSION EQUAL 1500 )
+        set(            PROJECT_RUNTIME vc9 )
+    elseif( MSVC_VERSION EQUAL 1600 )
+        set(            PROJECT_RUNTIME vc10 )
+    elseif( MSVC_VERSION EQUAL 1700 )
+        set(            PROJECT_RUNTIME vc11 )
+    elseif( MSVC_VERSION EQUAL 1800 )
+        set(            PROJECT_RUNTIME vc12 )
+    elseif( MSVC_VERSION EQUAL 1900 )
+        set(            PROJECT_RUNTIME vc14 )
+    endif()
+elseif( MINGW )
+    set(                PROJECT_RUNTIME mingw )
+    if( MINGW64 )
+        set(            PROJECT_ARCH x64 )
+    else()
+        set(            PROJECT_ARCH x86 )
+    endif()
+endif()
+
+if( MSVC OR MINGW )
+    if( MSVC )
+        DEB( "MSVC: ${MSVC_VERSION}" )
+    endif()
+    DEB( "runtime: ${PROJECT_RUNTIME} ${PROJECT_ARCH}"  )
+endif()
+if(CMAKE_GENERATOR MATCHES Xcode)
+    DEB( "Xcode: ${XCODE_VERSION}"  )
+endif()
+
+
+# UNIX standard paths
+if( UNIX AND NOT ANDROID )
+    if( X86_64 OR CMAKE_SIZEOF_VOID_P EQUAL 8 )
+        if( EXISTS /lib64 )
+            list(       APPEND CMAKE_LIBRARY_PATH /lib64 )
+        else()
+            list(       APPEND CMAKE_LIBRARY_PATH /lib )
+        endif()
+        if( EXISTS /usr/lib64 )
+            list(       APPEND CMAKE_LIBRARY_PATH /usr/lib64 )
+        else()
+            list(       APPEND CMAKE_LIBRARY_PATH /usr/lib )
+        endif()
+    elseif( X86 OR CMAKE_SIZEOF_VOID_P EQUAL 4 )
+        if( EXISTS /lib32 )
+            list(       APPEND CMAKE_LIBRARY_PATH /lib32 )
+        else()
+            list(       APPEND CMAKE_LIBRARY_PATH /lib )
+        endif()
+        if( EXISTS /usr/lib32 )
+            list(       APPEND CMAKE_LIBRARY_PATH /usr/lib32 )
+        else()
+            list(       APPEND CMAKE_LIBRARY_PATH /usr/lib )
+        endif()
+    endif()
+endif()
+
+# MinGW specific include path
+if( MINGW )
+    if( EXISTS /mingw )
+        list(           APPEND CMAKE_INCLUDE_PATH /mingw )
+    endif()
+    if( EXISTS /mingw32 )
+        list(           APPEND CMAKE_INCLUDE_PATH /mingw32 )
+    endif()
+    if( EXISTS /mingw64 )
+        list(           APPEND CMAKE_INCLUDE_PATH /mingw64 )
+    endif()
+endif()
+
+# provide info about the compilation
+if(CMAKE_CXX_COMPILER_VERSION)
+  set(                  PROJECT_COMPILER_STR 				                   "${CMAKE_CXX_COMPILER} ${CMAKE_CXX_COMPILER_ARG1} (ver ${CMAKE_CXX_COMPILER_VERSION})" )
+elseif(CMAKE_COMPILER_IS_CLANGCXX)
+  set(                  PROJECT_COMPILER_STR 				                   "${CMAKE_CXX_COMPILER} ${CMAKE_CXX_COMPILER_ARG1} (ver ${CMAKE_CLANG_REGEX_VERSION})" )
+elseif(CMAKE_COMPILER_IS_GNUCXX)
+  set(                  PROJECT_COMPILER_STR 				                   "${CMAKE_CXX_COMPILER} ${CMAKE_CXX_COMPILER_ARG1} (ver ${CMAKE_GCC_REGEX_VERSION})" )
+else()
+  set(                  PROJECT_COMPILER_STR 				                   "${CMAKE_CXX_COMPILER} ${CMAKE_CXX_COMPILER_ARG1}")
+endif()
+string(                 STRIP "${PROJECT_COMPILER_STR}" 	                   PROJECT_COMPILER_STR)
+
+DEB( "C++ Compiler: ${PROJECT_COMPILER_STR}" )
+DEB( " |- flags (Release): ${CMAKE_CXX_FLAGS} ${CMAKE_CXX_FLAGS_RELEASE}" )
+DEB( " '- flags (Debug): ${CMAKE_CXX_FLAGS} ${CMAKE_CXX_FLAGS_DEBUG}" )
+DEB( "C Compiler: ${CMAKE_C_COMPILER} ${CMAKE_C_COMPILER_ARG1}" )
+DEB( " |- flags (Release): ${CMAKE_C_FLAGS} ${CMAKE_C_FLAGS_RELEASE}" )
+DEB( " '- flags (Debug): ${CMAKE_C_FLAGS} ${CMAKE_C_FLAGS_DEBUG}" )
+if(WIN32)
+    DEB( "linker flags (Release): ${CMAKE_EXE_LINKER_FLAGS} ${CMAKE_EXE_LINKER_FLAGS_RELEASE}" )
+    DEB( "linker flags (Debug): ${CMAKE_EXE_LINKER_FLAGS} ${CMAKE_EXE_LINKER_FLAGS_DEBUG}" )
+else()
+    DEB( "linker flags (Release): ${CMAKE_SHARED_LINKER_FLAGS} ${CMAKE_SHARED_LINKER_FLAGS_RELEASE}" )
+    DEB( "linker flags (Debug): ${CMAKE_SHARED_LINKER_FLAGS} ${CMAKE_SHARED_LINKER_FLAGS_DEBUG}" )
+endif()
+
+DEB_END("Environment")
+
+

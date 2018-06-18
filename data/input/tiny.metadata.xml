@@ -1,0 +1,391 @@
+<gmi:MI_Metadata xmlns:gmi="http://www.isotc211.org/2005/gmi" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:bag="http://www.opennavsurf.org/schema/bag">
+  <gmd:fileIdentifier>
+    <gco:CharacterString>86d213bb-8d53-4255-96ae-585239455e1b</gco:CharacterString>
+  </gmd:fileIdentifier>
+  <gmd:language>
+    <gmd:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/" codeListValue="eng">eng</gmd:LanguageCode>
+  </gmd:language>
+  <gmd:characterSet>
+    <gmd:MD_CharacterSetCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_CharacterSetCode" codeListValue="utf8">utf8</gmd:MD_CharacterSetCode>
+  </gmd:characterSet>
+  <gmd:hierarchyLevel>
+    <gmd:MD_ScopeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_ScopeCode" codeListValue="dataset">dataset</gmd:MD_ScopeCode>
+  </gmd:hierarchyLevel>
+  <gmd:contact>
+    <gmd:CI_ResponsibleParty>
+      <gmd:individualName>
+        <gco:CharacterString>Giuseppe Masetti (gmasetti@ccom.nh)</gco:CharacterString>
+      </gmd:individualName>
+      <gmd:role>
+        <gmd:CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="resourceProvider">resourceProvider</gmd:CI_RoleCode>
+      </gmd:role>
+    </gmd:CI_ResponsibleParty>
+  </gmd:contact>
+  <gmd:dateStamp>
+    <gco:Date>2017-09-18</gco:Date>
+  </gmd:dateStamp>
+  <gmd:metadataStandardName>
+    <gco:CharacterString>ISO 19115</gco:CharacterString>
+  </gmd:metadataStandardName>
+  <gmd:metadataStandardVersion>
+    <gco:CharacterString>2003/Cor.1:2006</gco:CharacterString>
+  </gmd:metadataStandardVersion>
+  <gmd:spatialRepresentationInfo>
+    <gmd:MD_VectorSpatialRepresentation>
+      <gmd:topologyLevel>
+        <gmd:MD_TopologyLevelCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_TopologyLevelCode" codeListValue="geometryOnly">geometryOnly</gmd:MD_TopologyLevelCode>
+      </gmd:topologyLevel>
+      <gmd:geometricObjects>
+        <gmd:MD_GeometricObjects>
+          <gmd:geometricObjectType>
+            <gmd:MD_GeometricObjectTypeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_GeometricObjectTypeCode" codeListValue="surface">surface</gmd:MD_GeometricObjectTypeCode>
+          </gmd:geometricObjectType>
+          <gmd:geometricObjectCount>
+            <gco:Integer>1</gco:Integer>
+          </gmd:geometricObjectCount>
+        </gmd:MD_GeometricObjects>
+      </gmd:geometricObjects>
+    </gmd:MD_VectorSpatialRepresentation>
+  </gmd:spatialRepresentationInfo>
+  <gmd:spatialRepresentationInfo>
+    <gmd:MD_Georectified>
+      <gmd:numberOfDimensions>
+        <gco:Integer>2</gco:Integer>
+      </gmd:numberOfDimensions>
+      <gmd:axisDimensionProperties>
+        <gmd:MD_Dimension>
+          <gmd:dimensionName>
+            <gmd:MD_DimensionNameTypeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_DimensionNameTypeCode" codeListValue="row">row</gmd:MD_DimensionNameTypeCode>
+          </gmd:dimensionName>
+          <gmd:dimensionSize>
+            <gco:Integer>87</gco:Integer>
+          </gmd:dimensionSize>
+          <gmd:resolution>
+            <gco:Measure uom="m">0.500000000000</gco:Measure>
+          </gmd:resolution>
+        </gmd:MD_Dimension>
+      </gmd:axisDimensionProperties>
+      <gmd:axisDimensionProperties>
+        <gmd:MD_Dimension>
+          <gmd:dimensionName>
+            <gmd:MD_DimensionNameTypeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_DimensionNameTypeCode" codeListValue="column">column</gmd:MD_DimensionNameTypeCode>
+          </gmd:dimensionName>
+          <gmd:dimensionSize>
+            <gco:Integer>117</gco:Integer>
+          </gmd:dimensionSize>
+          <gmd:resolution>
+            <gco:Measure uom="m">0.500000000000</gco:Measure>
+          </gmd:resolution>
+        </gmd:MD_Dimension>
+      </gmd:axisDimensionProperties>
+      <gmd:cellGeometry>
+        <gmd:MD_CellGeometryCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_CellGeometryCode" codeListValue="point">point</gmd:MD_CellGeometryCode>
+      </gmd:cellGeometry>
+      <gmd:transformationParameterAvailability>
+        <gco:Boolean>1</gco:Boolean>
+      </gmd:transformationParameterAvailability>
+      <gmd:checkPointAvailability>
+        <gco:Boolean>0</gco:Boolean>
+      </gmd:checkPointAvailability>
+      <gmd:cornerPoints>
+        <gml:Point gml:id="id1">
+          <gml:coordinates decimal="." cs="," ts=" ">361167.500000000000,4769733.000000000000 361226.000000000000,4769776.500000000000</gml:coordinates>
+        </gml:Point>
+      </gmd:cornerPoints>
+      <gmd:pointInPixel>
+        <gmd:MD_PixelOrientationCode>center</gmd:MD_PixelOrientationCode>
+      </gmd:pointInPixel>
+    </gmd:MD_Georectified>
+  </gmd:spatialRepresentationInfo>
+  <gmd:referenceSystemInfo>
+    <gmd:MD_ReferenceSystem>
+      <gmd:referenceSystemIdentifier>
+        <gmd:RS_Identifier>
+          <gmd:code>
+            <gco:CharacterString>PROJCS["WGS 84 / UTM zone 19N",GEOGCS["WGS 84",DATUM["WGS_1984",SPHEROID["WGS 84",6378137,298.2572235629972,AUTHORITY["EPSG","7030"]],TOWGS84[0,0,0,0,0,0,0],AUTHORITY["EPSG","6326"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree (supplier to define representation)",0.0174532925199433,AUTHORITY["EPSG","9122"]],AUTHORITY["EPSG","4326"],EXTENSION["tx_authority","WG84"]],PROJECTION["Transverse_Mercator",AUTHORITY["EPSG","16019"]],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",-69],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AUTHORITY["EPSG","32619"]]</gco:CharacterString>
+          </gmd:code>
+          <gmd:codeSpace>
+            <gco:CharacterString>WKT</gco:CharacterString>
+          </gmd:codeSpace>
+        </gmd:RS_Identifier>
+      </gmd:referenceSystemIdentifier>
+    </gmd:MD_ReferenceSystem>
+  </gmd:referenceSystemInfo>
+  <gmd:referenceSystemInfo>
+    <gmd:MD_ReferenceSystem>
+      <gmd:referenceSystemIdentifier>
+        <gmd:RS_Identifier>
+          <gmd:code>
+            <gco:CharacterString>VERT_CS["//", VERT_DATUM["//", 2000]]</gco:CharacterString>
+          </gmd:code>
+          <gmd:codeSpace>
+            <gco:CharacterString>WKT</gco:CharacterString>
+          </gmd:codeSpace>
+        </gmd:RS_Identifier>
+      </gmd:referenceSystemIdentifier>
+    </gmd:MD_ReferenceSystem>
+  </gmd:referenceSystemInfo>
+  <gmd:identificationInfo>
+    <bag:BAG_DataIdentification>
+      <gmd:citation>
+        <gmd:CI_Citation>
+          <gmd:title>
+            <gco:CharacterString>SummerHydro2007_159_1_dtm_tiny.csar</gco:CharacterString>
+          </gmd:title>
+          <gmd:date>
+            <gmd:CI_Date>
+              <gmd:date>
+                <gco:Date>2007-06-08</gco:Date>
+              </gmd:date>
+              <gmd:dateType>
+                <gmd:CI_DateTypeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode" codeListValue="creation">creation</gmd:CI_DateTypeCode>
+              </gmd:dateType>
+            </gmd:CI_Date>
+          </gmd:date>
+          <gmd:citedResponsibleParty>
+            <gmd:CI_ResponsibleParty>
+              <gmd:individualName>
+                <gco:CharacterString>Giuseppe Masetti (gmasetti@ccom.nh)</gco:CharacterString>
+              </gmd:individualName>
+              <gmd:role>
+                <gmd:CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="resourceProvider">resourceProvider</gmd:CI_RoleCode>
+              </gmd:role>
+            </gmd:CI_ResponsibleParty>
+          </gmd:citedResponsibleParty>
+        </gmd:CI_Citation>
+      </gmd:citation>
+      <gmd:abstract>
+        <gco:CharacterString>//</gco:CharacterString>
+      </gmd:abstract>
+      <gmd:status>
+        <gmd:MD_ProgressCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_ProgressCode" codeListValue="underDevelopment">underDevelopment</gmd:MD_ProgressCode>
+      </gmd:status>
+      <gmd:spatialRepresentationType>
+        <gmd:MD_SpatialRepresentationTypeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_SpatialRepresentationTypeCode" codeListValue="grid">grid</gmd:MD_SpatialRepresentationTypeCode>
+      </gmd:spatialRepresentationType>
+      <gmd:spatialResolution>
+        <gmd:MD_Resolution>
+          <gmd:distance>
+            <gco:Distance uom="m">0.5</gco:Distance>
+          </gmd:distance>
+        </gmd:MD_Resolution>
+      </gmd:spatialResolution>
+      <gmd:language>
+        <gmd:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/" codeListValue="eng">eng</gmd:LanguageCode>
+      </gmd:language>
+      <gmd:characterSet>
+        <gmd:MD_CharacterSetCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_CharacterSetCode" codeListValue="utf8">utf8</gmd:MD_CharacterSetCode>
+      </gmd:characterSet>
+      <gmd:topicCategory>
+        <gmd:MD_TopicCategoryCode>elevation</gmd:MD_TopicCategoryCode>
+      </gmd:topicCategory>
+      <gmd:environmentDescription>
+        <gco:CharacterString>CARIS HIPS and SIPS 10.3.3</gco:CharacterString>
+      </gmd:environmentDescription>
+      <gmd:extent>
+        <gmd:EX_Extent>
+          <gmd:geographicElement>
+            <gmd:EX_GeographicBoundingBox>
+              <gmd:westBoundLongitude>
+                <gco:Decimal>-70.705144909997</gco:Decimal>
+              </gmd:westBoundLongitude>
+              <gmd:eastBoundLongitude>
+                <gco:Decimal>-70.704437574055</gco:Decimal>
+              </gmd:eastBoundLongitude>
+              <gmd:southBoundLatitude>
+                <gco:Decimal>43.067603479201</gco:Decimal>
+              </gmd:southBoundLatitude>
+              <gmd:northBoundLatitude>
+                <gco:Decimal>43.068005724085</gco:Decimal>
+              </gmd:northBoundLatitude>
+            </gmd:EX_GeographicBoundingBox>
+          </gmd:geographicElement>
+          <gmd:temporalElement>
+            <gmd:EX_TemporalExtent>
+              <gmd:extent>
+                <gml:TimePeriod gml:id="temporal-extent-1" xsi:type="gml:TimePeriodType">
+                  <gml:beginPosition>2007-06-08T14:21:59</gml:beginPosition>
+                  <gml:endPosition>2007-06-08T15:22:31</gml:endPosition>
+                </gml:TimePeriod>
+              </gmd:extent>
+            </gmd:EX_TemporalExtent>
+          </gmd:temporalElement>
+          <gmd:verticalElement>
+            <gmd:EX_VerticalExtent>
+              <gmd:minimumValue>
+                <gco:Real>-13.768925</gco:Real>
+              </gmd:minimumValue>
+              <gmd:maximumValue>
+                <gco:Real>-12.069777</gco:Real>
+              </gmd:maximumValue>
+              <gmd:verticalCRS gco:nilReason="unknown"/>
+            </gmd:EX_VerticalExtent>
+          </gmd:verticalElement>
+        </gmd:EX_Extent>
+      </gmd:extent>
+      <bag:verticalUncertaintyType>
+        <bag:BAG_VertUncertCode codeList="http://www.opennavsurf.org/schema/bag/bagCodelists.xml#BAG_VertUncertCode" codeListValue="productUncert">productUncert</bag:BAG_VertUncertCode>
+      </bag:verticalUncertaintyType>
+    </bag:BAG_DataIdentification>
+  </gmd:identificationInfo>
+  <gmd:distributionInfo>
+    <gmd:MD_Distribution>
+      <gmd:distributionFormat>
+        <gmd:MD_Format>
+          <gmd:name>
+            <gco:CharacterString>CSAR</gco:CharacterString>
+          </gmd:name>
+          <gmd:version>
+            <gco:CharacterString>6,400</gco:CharacterString>
+          </gmd:version>
+        </gmd:MD_Format>
+      </gmd:distributionFormat>
+    </gmd:MD_Distribution>
+  </gmd:distributionInfo>
+  <gmd:dataQualityInfo>
+    <gmd:DQ_DataQuality>
+      <gmd:scope>
+        <gmd:DQ_Scope>
+          <gmd:level>
+            <gmd:MD_ScopeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_ScopeCode" codeListValue="dataset">dataset</gmd:MD_ScopeCode>
+          </gmd:level>
+        </gmd:DQ_Scope>
+      </gmd:scope>
+      <gmd:lineage>
+        <gmd:LI_Lineage>
+          <gmd:processStep>
+            <gmd:LI_ProcessStep>
+              <gmd:description>
+                <gco:CharacterString>Method: Create HIPS Grid using CUBE; Parameters: Process ID = CreateHIPSGridWithCUBE, Options = &lt;model&gt;&lt;version&gt;1.0.0&lt;/version&gt;&lt;process&gt;&lt;id&gt;CreateHIPSGridWithCUBE&lt;/id&gt;&lt;version&gt;1.0.0&lt;/version&gt;&lt;port&gt;&lt;id&gt;ComputeBand&lt;/id&gt;&lt;source&gt;&lt;type&gt;Literal&lt;/type&gt;&lt;data&gt;&lt;id&gt;Data&lt;/id&gt;&lt;simple&gt;&lt;type&gt;String&lt;/type&gt;&lt;value&gt;SHOAL&lt;/value&gt;&lt;/simple&gt;&lt;/data&gt;&lt;/source&gt;&lt;source&gt;&lt;type&gt;Literal&lt;/type&gt;&lt;data&gt;&lt;id&gt;Data&lt;/id&gt;&lt;simple&gt;&lt;type&gt;String&lt;/type&gt;&lt;value&gt;DEEP&lt;/value&gt;&lt;/simple&gt;&lt;/data&gt;&lt;/source&gt;&lt;source&gt;&lt;type&gt;Literal&lt;/type&gt;&lt;data&gt;&lt;id&gt;Data&lt;/id&gt;&lt;simple&gt;&lt;type&gt;String&lt;/type&gt;&lt;value&gt;DENSITY&lt;/value&gt;&lt;/simple&gt;&lt;/data&gt;&lt;/source&gt;&lt;source&gt;&lt;type&gt;Literal&lt;/type&gt;&lt;data&gt;&lt;id&gt;Data&lt;/id&gt;&lt;simple&gt;&lt;type&gt;String&lt;/type&gt;&lt;value&gt;MEAN&lt;/value&gt;&lt;/simple&gt;&lt;/data&gt;&lt;/source&gt;&lt;source&gt;&lt;type&gt;Literal&lt;/type&gt;&lt;data&gt;&lt;id&gt;Data&lt;/id&gt;&lt;simple&gt;&lt;type&gt;String&lt;/type&gt;&lt;value&gt;STD_DEV&lt;/value&gt;&lt;/simple&gt;&lt;/data&gt;&lt;/source&gt;&lt;/port&gt;&lt;port&gt;&lt;id&gt;CubeConfig&lt;/id&gt;&lt;source&gt;&lt;type&gt;Literal&lt;/type&gt;&lt;data&gt;&lt;id&gt;Data&lt;/id&gt;&lt;complex&gt;&lt;attribute&gt;&lt;id&gt;CubeConfigSettings&lt;/id&gt;&lt;simple&gt;&lt;type&gt;String&lt;/type&gt;&lt;value&gt;&amp;lt;?xml version="1.0"?&amp;gt;
+&amp;lt;CARIS_CUBE_Parameters&amp;gt;&amp;lt;Comment value="Default values."/&amp;gt;&amp;lt;Distance_Exponent value="2"/&amp;gt;&amp;lt;Queue_Length value="11"/&amp;gt;&amp;lt;Quotient_Limit value="255"/&amp;gt;&amp;lt;Discount_Factor value="1"/&amp;gt;&amp;lt;Estimate_Offset value="4"/&amp;gt;&amp;lt;Bayes_Factor_Threshold value="0.135000005364418"/&amp;gt;&amp;lt;Run_Length_Threshold value="5"/&amp;gt;&amp;lt;Capture_Distance_Scale value="5"/&amp;gt;&amp;lt;Capture_Distance_Min value="0.5"/&amp;gt;&amp;lt;Horiz_Error_Scalar value="2.95000004768372"/&amp;gt;&amp;lt;Density_Strength_Cutoff value="2"/&amp;gt;&amp;lt;Locale_Strengh_Max value="2.5"/&amp;gt;&amp;lt;Null_Hypothesis_Min_Neighbours value="3"/&amp;gt;&amp;lt;Null_Hypothesis_Ratio value="3"/&amp;gt;&amp;lt;Locale_Radius value="1"/&amp;gt;&amp;lt;Null_Hypothesis_Strength_Max value="2.5"/&amp;gt;&amp;lt;Enable_Null_Hypothesis value="False"/&amp;gt;&amp;lt;/CARIS_CUBE_Parameters&amp;gt;
+&lt;/value&gt;&lt;/simple&gt;&lt;/attribute&gt;&lt;/complex&gt;&lt;/data&gt;&lt;/source&gt;&lt;/port&gt;&lt;port&gt;&lt;id&gt;DisambiguationMethod&lt;/id&gt;&lt;source&gt;&lt;type&gt;Literal&lt;/type&gt;&lt;data&gt;&lt;id&gt;Data&lt;/id&gt;&lt;simple&gt;&lt;type&gt;String&lt;/type&gt;&lt;value&gt;DENSITY_LOCALE&lt;/value&gt;&lt;/simple&gt;&lt;/data&gt;&lt;/source&gt;&lt;/port&gt;&lt;port&gt;&lt;id&gt;Extent&lt;/id&gt;&lt;source&gt;&lt;type&gt;Literal&lt;/type&gt;&lt;data&gt;&lt;id&gt;Data&lt;/id&gt;&lt;complex&gt;&lt;attribute&gt;&lt;id&gt;LowerX&lt;/id&gt;&lt;simple&gt;&lt;type&gt;String&lt;/type&gt;&lt;value&gt;361167.84999999998m&lt;/value&gt;&lt;/simple&gt;&lt;/attribute&gt;&lt;attribute&gt;&lt;id&gt;LowerY&lt;/id&gt;&lt;simple&gt;&lt;type&gt;String&lt;/type&gt;&lt;value&gt;4769733.4500000002m&lt;/value&gt;&lt;/simple&gt;&lt;/attribute&gt;&lt;attribute&gt;&lt;id&gt;UpperX&lt;/id&gt;&lt;simple&gt;&lt;type&gt;String&lt;/type&gt;&lt;value&gt;361225.37m&lt;/value&gt;&lt;/simple&gt;&lt;/attribute&gt;&lt;attribute&gt;&lt;id&gt;UpperY&lt;/id&gt;&lt;simple&gt;&lt;type&gt;String&lt;/type&gt;&lt;value&gt;4769775.71m&lt;/value&gt;&lt;/simple&gt;&lt;/attribute&gt;&lt;/complex&gt;&lt;/data&gt;&lt;/source&gt;&lt;/port&gt;&lt;port&gt;&lt;id&gt;IHOOrder&lt;/id&gt;&lt;source&gt;&lt;type&gt;Literal&lt;/type&gt;&lt;data&gt;&lt;id&gt;Data&lt;/id&gt;&lt;simple&gt;&lt;type&gt;String&lt;/type&gt;&lt;value&gt;S44_SPECIAL&lt;/value&gt;&lt;/simple&gt;&lt;/data&gt;&lt;/source&gt;&lt;/port&gt;&lt;port&gt;&lt;id&gt;IncludeAdditionalBathy&lt;/id&gt;&lt;source&gt;&lt;type&gt;Literal&lt;/type&gt;&lt;data&gt;&lt;id&gt;Data&lt;/id&gt;&lt;simple&gt;&lt;type&gt;Boolean&lt;/type&gt;&lt;value&gt;false&lt;/value&gt;&lt;/simple&gt;&lt;/data&gt;&lt;/source&gt;&lt;/port&gt;&lt;port&gt;&lt;id&gt;IncludeFlag&lt;/id&gt;&lt;source&gt;&lt;type&gt;Literal&lt;/type&gt;&lt;data&gt;&lt;id&gt;Data&lt;/id&gt;&lt;simple&gt;&lt;type&gt;String&lt;/type&gt;&lt;value&gt;ACCEPTED&lt;/value&gt;&lt;/simple&gt;&lt;/data&gt;&lt;/source&gt;&lt;source&gt;&lt;type&gt;Literal&lt;/type&gt;&lt;data&gt;&lt;id&gt;Data&lt;/id&gt;&lt;simple&gt;&lt;type&gt;String&lt;/type&gt;&lt;value&gt;OUTSTANDING&lt;/value&gt;&lt;/simple&gt;&lt;/data&gt;&lt;/source&gt;&lt;source&gt;&lt;type&gt;Literal&lt;/type&gt;&lt;data&gt;&lt;id&gt;Data&lt;/id&gt;&lt;simple&gt;&lt;type&gt;String&lt;/type&gt;&lt;value&gt;EXAMINED&lt;/value&gt;&lt;/simple&gt;&lt;/data&gt;&lt;/source&gt;&lt;/port&gt;&lt;port&gt;&lt;id&gt;KeepUpToDate&lt;/id&gt;&lt;source&gt;&lt;type&gt;Literal&lt;/type&gt;&lt;data&gt;&lt;id&gt;Data&lt;/id&gt;&lt;simple&gt;&lt;type&gt;Boolean&lt;/type&gt;&lt;value&gt;true&lt;/value&gt;&lt;/simple&gt;&lt;/data&gt;&lt;/source&gt;&lt;/port&gt;&lt;port&gt;&lt;id&gt;OutputCRS&lt;/id&gt;&lt;source&gt;&lt;type&gt;Literal&lt;/type&gt;&lt;data&gt;&lt;id&gt;Data&lt;/id&gt;&lt;simple&gt;&lt;type&gt;String&lt;/type&gt;&lt;value&gt;WKT::PROJCS["WGS 84 / UTM zone 19N",
+    GEOGCS["WGS 84",
+        DATUM["World Geodetic System 1984",
+            SPHEROID["WGS 84",6378137,298.2572235629972,
+                AUTHORITY["EPSG","7030"]],
+            TOWGS84[0,0,0,0,0,0,0],
+            AUTHORITY["EPSG","6326"]],
+        PRIMEM["Greenwich",0,
+            AUTHORITY["EPSG","8901"]],
+        UNIT["degree (supplier to define representation)",0.0174532925199433,
+            AUTHORITY["EPSG","9122"]],
+        AUTHORITY["EPSG","4326"],
+        EXTENSION["tx_authority","WG84"]],
+    PROJECTION["Transverse_Mercator",
+        AUTHORITY["EPSG","16019"]],
+    PARAMETER["latitude_of_origin",0],
+    PARAMETER["central_meridian",-69],
+    PARAMETER["scale_factor",0.9996],
+    PARAMETER["false_easting",500000],
+    PARAMETER["false_northing",0],
+    UNIT["metre",1,
+        AUTHORITY["EPSG","9001"]],
+    AUTHORITY["EPSG","32619"]]&lt;/value&gt;&lt;/simple&gt;&lt;/data&gt;&lt;/source&gt;&lt;/port&gt;&lt;port&gt;&lt;id&gt;OutputVerticalCRS&lt;/id&gt;&lt;source&gt;&lt;type&gt;Literal&lt;/type&gt;&lt;data&gt;&lt;id&gt;Data&lt;/id&gt;&lt;simple&gt;&lt;type&gt;String&lt;/type&gt;&lt;value&gt;Unknown&lt;/value&gt;&lt;/simple&gt;&lt;/data&gt;&lt;/source&gt;&lt;/port&gt;&lt;port&gt;&lt;id&gt;PolygonType&lt;/id&gt;&lt;source&gt;&lt;type&gt;Literal&lt;/type&gt;&lt;data&gt;&lt;id&gt;Data&lt;/id&gt;&lt;simple&gt;&lt;type&gt;String&lt;/type&gt;&lt;value&gt;BUFFERED&lt;/value&gt;&lt;/simple&gt;&lt;/data&gt;&lt;/source&gt;&lt;/port&gt;&lt;port&gt;&lt;id&gt;PrimaryBand&lt;/id&gt;&lt;source&gt;&lt;type&gt;Literal&lt;/type&gt;&lt;data&gt;&lt;id&gt;Data&lt;/id&gt;&lt;simple&gt;&lt;type&gt;String&lt;/type&gt;&lt;value&gt;Depth&lt;/value&gt;&lt;/simple&gt;&lt;/data&gt;&lt;/source&gt;&lt;/port&gt;&lt;port&gt;&lt;id&gt;Resolution&lt;/id&gt;&lt;source&gt;&lt;type&gt;Literal&lt;/type&gt;&lt;data&gt;&lt;id&gt;Data&lt;/id&gt;&lt;simple&gt;&lt;type&gt;Quantity&lt;/type&gt;&lt;value&gt;0.5 m&lt;/value&gt;&lt;/simple&gt;&lt;/data&gt;&lt;/source&gt;&lt;/port&gt;&lt;port&gt;&lt;id&gt;UpdateType&lt;/id&gt;&lt;source&gt;&lt;type&gt;Literal&lt;/type&gt;&lt;data&gt;&lt;id&gt;Data&lt;/id&gt;&lt;simple&gt;&lt;type&gt;String&lt;/type&gt;&lt;value&gt;CreateNew&lt;/value&gt;&lt;/simple&gt;&lt;/data&gt;&lt;/source&gt;&lt;/port&gt;&lt;/process&gt;&lt;/model&gt;
+</gco:CharacterString>
+              </gmd:description>
+              <gmd:dateTime>
+                <gco:DateTime>2017-09-18T17:05:28</gco:DateTime>
+              </gmd:dateTime>
+              <gmd:processor>
+                <gmd:CI_ResponsibleParty>
+                  <gmd:individualName>
+                    <gco:CharacterString>Giuseppe Masetti (gmasetti@ccom.nh)</gco:CharacterString>
+                  </gmd:individualName>
+                  <gmd:role>
+                    <gmd:CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="processor">processor</gmd:CI_RoleCode>
+                  </gmd:role>
+                </gmd:CI_ResponsibleParty>
+              </gmd:processor>
+              <gmd:source>
+                <gmd:LI_Source>
+                  <gmd:description>
+                    <gco:CharacterString>Source</gco:CharacterString>
+                  </gmd:description>
+                  <gmd:sourceCitation>
+                    <gmd:CI_Citation>
+                      <gmd:title>
+                        <gco:CharacterString>Track Line = file:///D:/CARIS10_DATA/sh2007/sh2007.hips?Vessel=CoastalSurveyor;Day=2007-159;Line=0001_20070608_135608_Coastal_Surveyor&amp;Vessel=CoastalSurveyor;Day=2007-159;Line=0002_20070608_140105_Coastal_Surveyor&amp;Vessel=CoastalSurveyor;Day=2007-159;Line=0003_20070608_140937_Coastal_Surveyor&amp;Vessel=CoastalSurveyor;Day=2007-159;Line=0004_20070608_141436_Coastal_Surveyor&amp;Vessel=CoastalSurveyor;Day=2007-159;Line=0005_20070608_141943_Coastal_Surveyor&amp;Vessel=CoastalSurveyor;Day=2007-159;Line=0006_20070608_142528_Coastal_Surveyor&amp;Vessel=CoastalSurveyor;Day=2007-159;Line=0007_20070608_143120_Coastal_Surveyor&amp;Vessel=CoastalSurveyor;Day=2007-159;Line=0008_20070608_143637_Coastal_Surveyor&amp;Vessel=CoastalSurveyor;Day=2007-159;Line=0009_20070608_144122_Coastal_Surveyor&amp;Vessel=CoastalSurveyor;Day=2007-159;Line=0010_20070608_144658_Coastal_Surveyor&amp;Vessel=CoastalSurveyor;Day=2007-159;Line=0011_20070608_145246_Coastal_Surveyor&amp;Vessel=CoastalSurveyor;Day=2007-159;Line=0012_20070608_145808_Coastal_Surveyor&amp;Vessel=CoastalSurveyor;Day=2007-159;Line=0013_20070608_150542_Coastal_Surveyor&amp;Vessel=CoastalSurveyor;Day=2007-159;Line=0014_20070608_151111_Coastal_Surveyor&amp;Vessel=CoastalSurveyor;Day=2007-159;Line=0015_20070608_151559_Coastal_Surveyor&amp;Vessel=CoastalSurveyor;Day=2007-159;Line=0016_20070608_152056_Coastal_Surveyor&amp;Vessel=CoastalSurveyor;Day=2007-159;Line=0017_20070608_152721_Coastal_Surveyor&amp;Vessel=CoastalSurveyor;Day=2007-159;Line=0018_20070608_153207_Coastal_Surveyor</gco:CharacterString>
+                      </gmd:title>
+                      <gmd:date>
+                        <gmd:CI_Date>
+                          <gmd:date>
+                            <gco:Date>2017-09-02</gco:Date>
+                          </gmd:date>
+                          <gmd:dateType>
+                            <gmd:CI_DateTypeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode" codeListValue="creation">creation</gmd:CI_DateTypeCode>
+                          </gmd:dateType>
+                        </gmd:CI_Date>
+                      </gmd:date>
+                    </gmd:CI_Citation>
+                  </gmd:sourceCitation>
+                </gmd:LI_Source>
+              </gmd:source>
+            </gmd:LI_ProcessStep>
+          </gmd:processStep>
+          <gmd:processStep>
+            <bag:BAG_ProcessStep>
+              <gmd:description>
+                <gco:CharacterString>Designated soundings applied by automated procedure.</gco:CharacterString>
+              </gmd:description>
+              <bag:trackingId>
+                <gco:CharacterString>0</gco:CharacterString>
+              </bag:trackingId>
+            </bag:BAG_ProcessStep>
+          </gmd:processStep>
+        </gmd:LI_Lineage>
+      </gmd:lineage>
+    </gmd:DQ_DataQuality>
+  </gmd:dataQualityInfo>
+  <gmd:metadataConstraints>
+    <gmd:MD_LegalConstraints>
+      <gmd:useConstraints>
+        <gmd:MD_RestrictionCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_RestrictionCode" codeListValue="otherRestrictions">otherRestrictions</gmd:MD_RestrictionCode>
+      </gmd:useConstraints>
+      <gmd:otherConstraints>
+        <gco:CharacterString>//</gco:CharacterString>
+      </gmd:otherConstraints>
+    </gmd:MD_LegalConstraints>
+  </gmd:metadataConstraints>
+  <gmd:metadataConstraints>
+    <gmd:MD_SecurityConstraints>
+      <gmd:classification>
+        <gmd:MD_ClassificationCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_ClassificationCode" codeListValue="unclassified">unclassified</gmd:MD_ClassificationCode>
+      </gmd:classification>
+      <gmd:userNote>
+        <gco:CharacterString>//</gco:CharacterString>
+      </gmd:userNote>
+    </gmd:MD_SecurityConstraints>
+  </gmd:metadataConstraints>
+  <gmi:acquisitionInformation>
+    <gmi:MI_AcquisitionInformation>
+      <gmi:platform>
+        <gmi:MI_Platform>
+          <gmi:identifier>
+            <gmd:MD_Identifier>
+              <gmd:code>
+                <gco:CharacterString>CoastalSurveyor</gco:CharacterString>
+              </gmd:code>
+            </gmd:MD_Identifier>
+          </gmi:identifier>
+          <gmi:description>
+            <gco:CharacterString>Platform Name</gco:CharacterString>
+          </gmi:description>
+          <gmi:instrument>
+            <gmi:MI_Instrument>
+              <gmi:identifier>
+                <gmd:MD_Identifier>
+                  <gmd:code>
+                    <gco:CharacterString>instrument unknown</gco:CharacterString>
+                  </gmd:code>
+                </gmd:MD_Identifier>
+              </gmi:identifier>
+              <gmi:type>
+                <gco:CharacterString>instrument type unknown</gco:CharacterString>
+              </gmi:type>
+            </gmi:MI_Instrument>
+          </gmi:instrument>
+        </gmi:MI_Platform>
+      </gmi:platform>
+    </gmi:MI_AcquisitionInformation>
+  </gmi:acquisitionInformation>
+</gmi:MI_Metadata>
