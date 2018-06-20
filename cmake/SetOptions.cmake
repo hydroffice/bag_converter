@@ -14,4 +14,9 @@ if( BAGCNV_MODE_VERBOSE )
     add_definitions(    -DBAGCNV_VERBOSE )
 endif()
 
+ if( MSVC_VERSION EQUAL 1900 )
+	option(             BAGCNV_USE_INTERNAL_BINS "Build against internal binaries" ON )
+	DEB(                "internal binaries: ${BAGCNV_USE_INTERNAL_BINS}")
+ endif()
+
 DEB_END("Options")

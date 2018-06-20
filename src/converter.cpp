@@ -12,7 +12,7 @@
 #include "gdal_priv.h"
 #include "ogr_spatialref.h"
 #include "cpl_conv.h"
-#include "bag.h"
+#include "bag/bag.h"
 #include <memory>
 #include <utility>
 
