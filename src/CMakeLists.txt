@@ -1,9 +1,13 @@
 set( 					TARGET_NAME  			"bag_converter" )
 set( 					TARGET_DEBUG_POSTFIX 	"_d" )
-add_executable( 		bag_converter 		  	bag_converter.cpp
+set( 					PRJ_SRC					bag_converter.cpp
 												helper.h helper.cpp
 												converter.h converter.cpp	
 												)
+if(MSVC)
+    set( PRJ_SRC        ${PRJ_SRC} 				bag_converter.rc )
+endif()
+add_executable( 		bag_converter 		  	${PRJ_SRC} )
 set_target_properties( 	bag_converter		    PROPERTIES 
 												OUTPUT_NAME ${TARGET_NAME}
 												DEBUG_POSTFIX ${TARGET_DEBUG_POSTFIX} )		

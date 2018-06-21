@@ -1,5 +1,6 @@
-#ifndef _HYDROFFICE_GRIDS_SPECS_H_
-#define _HYDROFFICE_GRIDS_SPECS_H_
+// Copyright (c) 2018, University of New Hampshire, Center for Coastal and Ocean Mapping
+#ifndef _CONVERTER_H_
+#define _CONVERTER_H_
 
 #include <string>
 #include <array>
@@ -24,8 +25,8 @@ namespace bag
 		Converter& operator=(const Converter& other) = default;
 		Converter& operator=(Converter&& other) = default;
 
-		bool convert(std::string elev_input, std::string bag_output, std::string configdata_output, 
-			std::string metadata_output );
+		bool convert(std::string elev_input, std::string bag_output, std::string configdata_path, 
+			std::string metadata_path);
 
 		std::string str(size_t spaces = 0) const;
 
@@ -43,23 +44,23 @@ namespace bag
 		std::string _metadata;
 		std::vector<float> _elevation;
 
-		std::array<double, 6> _transform;
-		int64_t _rows;
-		int64_t _cols;
-		double _min_x;
-		double _max_x;
-		double _res_x;
-		double _min_y;
-		double _max_y;
-		double _res_y;
+		std::array<double, 6> _transform{};
+		int64_t _rows{};
+		int64_t _cols{};
+		double _min_x{};
+		double _max_x{};
+		double _res_x{};
+		double _min_y{};
+		double _max_y{};
+		double _res_y{};
 		std::string _hrs;
 		std::string _vrs;
-		double _geo_s;
-		double _geo_n;
-		double _geo_w;
-		double _geo_e;
-		float _min_depth;
-		float _max_depth;
+		double _geo_s{};
+		double _geo_n{};
+		double _geo_w{};
+		double _geo_e{};
+		float _min_depth{};
+		float _max_depth{};
 
 		bagHandle _hnd = nullptr;
 		bagError _error = 0;
