@@ -32,10 +32,19 @@ The build is based on `CMake <https://cmake.org/>`_.
 The Cmake's option 'BAGCNV_USE_INTERNAL_BINS' (only available on Windows) links against internally-shipped binary libraries for GDAL and BAG.
 
 
+How to use
+----------
+
+Run *bag_converter [GDAL raster input] [BAG output]*.
+
+The *[GDAL raster input]* is a path to a raster file (e.g., GeoTiff) that will be used to populate the elevation layer in the BAG file.
+
+The *[BAG output]* provides name and path for the generated BAG.
+
+
 Other info
 ----------
 
 * GitHub: `https://github.com/hydroffice/bag_converter <https://github.com/hydroffice/bag_converter>`_
 * Project page: `http://www.hydroffice.org/bag/ <http://www.hydroffice.org/bag/>`_
 * License: LGPLv3 license (See `LICENSE <https://github.com/hydroffice/bag_converter/raw/master/LICENSE>`_)
-
